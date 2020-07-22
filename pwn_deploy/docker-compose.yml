@@ -1,0 +1,13 @@
+version: '2'
+services:
+ pwn_deploy_chroot:
+   image: pwn_deploy_chroot:latest
+   build: .
+   container_name: pwn_deploy_chroot
+   ports:
+    - 1800:1800
+    - 1801:1801
+   volumes:
+    - ./pwnfiles:/home
+    - ./service.sh:/service.sh
+   command: bash /service.sh
